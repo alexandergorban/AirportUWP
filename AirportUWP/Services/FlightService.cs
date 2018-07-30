@@ -8,7 +8,7 @@ using AirportUWP.Models;
 
 namespace AirportUWP.Services
 {
-    public class FlightService : AirportDataService<FlightDto>
+    public class FlightService : BaseAirportDataService<FlightDto>
     {
         public FlightService() : base("http://localhost:32157/api/v1/flights")
         {

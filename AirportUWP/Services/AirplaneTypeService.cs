@@ -8,7 +8,7 @@ using AirportUWP.Models;
 
 namespace AirportUWP.Services
 {
-    public class AirplaneTypeService : AirportDataService<AirplaneTypeDto>
+    public class AirplaneTypeService : BaseAirportDataService<AirplaneTypeDto>
     {
         public AirplaneTypeService() : base("http://localhost:32157/api/v1/airplanetypes")
         {

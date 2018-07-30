@@ -12,11 +12,11 @@ using Newtonsoft.Json;
 
 namespace AirportUWP.Abstractions
 {
-    public abstract class AirportDataService<TEntity> where TEntity : class
+    public abstract class BaseAirportDataService<TEntity> where TEntity : class
     {
         private readonly string _resourceUrl;
 
-        protected AirportDataService(string resourceUrl)
+        protected BaseAirportDataService(string resourceUrl)
         {
             _resourceUrl = resourceUrl;
         }
