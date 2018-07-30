@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Interfaces;
 
-namespace AirportWebAPI.DataAccessLayer.Entities
+namespace AirportUWP.Models
 {
     public class CrewDto : IModelDto
     {

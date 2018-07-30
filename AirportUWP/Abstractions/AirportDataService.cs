@@ -72,7 +72,7 @@ namespace AirportUWP.Abstractions
             }
         }
 
-        public async Task Delete(string id)
+        public async Task DeleteEntityAsync(string id)
         {
             try
             {
