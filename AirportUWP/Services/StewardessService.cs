@@ -8,7 +8,7 @@ using AirportUWP.Models;
 
 namespace AirportUWP.Services
 {
-    public class StewardessService : BaseAirportDataService<StewardessDto>
+    public class StewardessService : AirportDataService<StewardessDto>
     {
         public StewardessService() : base("http://localhost:32157/api/v1/crews/stewardesses")
         {
