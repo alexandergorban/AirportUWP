@@ -119,14 +119,6 @@
     <Compile Include="Services\PilotService.cs" />
     <Compile Include="Services\StewardessService.cs" />
     <Compile Include="Services\TicketService.cs" />
-    <Compile Include="ViewModels\AirplaneTypeViewModel.cs" />
-    <Compile Include="ViewModels\AirplaneViewModel.cs" />
-    <Compile Include="ViewModels\CrewViewModel.cs" />
-    <Compile Include="ViewModels\DepartureViewModel.cs" />
-    <Compile Include="ViewModels\FlightViewModel.cs" />
-    <Compile Include="ViewModels\PilotViewModel.cs" />
-    <Compile Include="ViewModels\StewardessViewModel.cs" />
-    <Compile Include="ViewModels\TicketViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
