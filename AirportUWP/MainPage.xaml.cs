@@ -25,6 +25,63 @@ namespace AirportUWP
         public MainPage()
         {
             this.InitializeComponent();
+
+            routerFrame.Navigate(typeof(HomeView));
+            TitleTextBlock.Text = "AirportUWP";
+        }
+
+        private void Main_Button_Click(object sender, RoutedEventArgs e)
+        {
+            mySplitView.IsPaneOpen = !mySplitView.IsPaneOpen;
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (HomeView.IsSelected)
+            {
+                routerFrame.Navigate(typeof(HomeView));
+                TitleTextBlock.Text = "AirportUWP";
+            }
+            else if (AirplaneView.IsSelected)
+            {
+                routerFrame.Navigate(typeof(AirplaneView));
+                TitleTextBlock.Text = "Airplanes";
+            }
+            else if (AirplaneTypeView.IsSelected)
+            {
+                routerFrame.Navigate(typeof(AirplaneTypeView));
+                TitleTextBlock.Text = "AirplaneTypes";
+            }
+            else if (CrewView.IsSelected)
+            {
+                routerFrame.Navigate(typeof(CrewView));
+                TitleTextBlock.Text = "Crews";
+            }
+            else if (DepartureView.IsSelected)
+            {
+                routerFrame.Navigate(typeof(DepartureView));
+                TitleTextBlock.Text = "Departures";
+            }
+            else if (FlightView.IsSelected)
+            {
+                routerFrame.Navigate(typeof(FlightView));
+                TitleTextBlock.Text = "Flights";
+            }
+            else if (PilotView.IsSelected)
+            {
+                routerFrame.Navigate(typeof(PilotView));
+                TitleTextBlock.Text = "Pilots";
+            }
+            else if (StewardesseView.IsSelected)
+            {
+                routerFrame.Navigate(typeof(StewardessView));
+                TitleTextBlock.Text = "Stewardesses";
+            }
+            else if (TicketView.IsSelected)
+            {
+                routerFrame.Navigate(typeof(TicketView));
+                TitleTextBlock.Text = "Tickets";
+            }
         }
     }
 }

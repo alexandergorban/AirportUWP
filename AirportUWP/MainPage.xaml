@@ -9,6 +9,54 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <RelativePanel>
+            <Button x:Name="MainButton" 
+                    RelativePanel.AlignLeftWithPanel="True"
+                    FontFamily="Segoe MDL2 Assets" FontSize="48"
+                    Content="&#xE700;" Click="Main_Button_Click"/>
+            <TextBlock Name="TitleTextBlock" 
+                       RelativePanel.RightOf="MainButton"
+                       FontSize="18" FontWeight="Normal" Margin="48 0 0 0" />
+        </RelativePanel>
+        <SplitView Name="mySplitView" Grid.Row="1" OpenPaneLength="180">
+            <SplitView.Pane>
+                <ListBox SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
+                    <ListBoxItem Name="HomeView">
+                        <TextBlock FontSize="18" Text="Home" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="AirplaneView">
+                        <TextBlock FontSize="18" Text="Airplanes" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="AirplaneTypeView">
+                        <TextBlock FontSize="18" Text="AirplaneTypes" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="CrewView">
+                        <TextBlock FontSize="18" Text="Crews" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="DepartureView">
+                        <TextBlock FontSize="18" Text="Departures" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="FlightView">
+                        <TextBlock FontSize="18" Text="Flights" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="PilotView">
+                        <TextBlock FontSize="18" Text="Pilots" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="StewardesseView">
+                        <TextBlock FontSize="18" Text="Stewardesses" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="TicketView">
+                        <TextBlock FontSize="18" Text="Tickets" />
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Frame Name="routerFrame" />
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>
