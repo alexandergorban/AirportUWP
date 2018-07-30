@@ -109,6 +109,14 @@
     <Compile Include="Models\StewardessDto.cs" />
     <Compile Include="Models\TicketDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AirplaneService.cs" />
+    <Compile Include="Services\AirplaneTypeService.cs" />
+    <Compile Include="Services\CrewService.cs" />
+    <Compile Include="Services\DepartureService.cs" />
+    <Compile Include="Services\FlightService.cs" />
+    <Compile Include="Services\PilotService.cs" />
+    <Compile Include="Services\StewardessService.cs" />
+    <Compile Include="Services\TicketService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
