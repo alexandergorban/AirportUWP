@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirportUWP.Abstractions;
+using AirportUWP.Models;
 
 namespace AirportUWP.Services
 {
-    class DepartureService
+    public class DepartureService : AirportDataService<DepartureDto>
     {
+        public DepartureService() : base("http://localhost:32157/api/v1/departures")
+        {
+            
+        }
     }
 }

@@ -14,7 +14,12 @@ namespace AirportUWP.Abstractions
 {
     public abstract class AirportDataService<TEntity> where TEntity : class
     {
-        string ResourceUrl { get; set; }
+        private readonly string _resourceUrl;
+
+        protected AirportDataService(string resourceUrl)
+        {
+            _resourceUrl = resourceUrl;
+        }
 
         public async Task<List<TEntity>> GetEntitiesAsync()
         {
@@ -22,7 +27,7 @@ namespace AirportUWP.Abstractions
             {
                 var httpClient = new HttpClient();
 
-                var entities = await httpClient.GetStringAsync($"{ResourceUrl}");
+                var entities = await httpClient.GetStringAsync($"{_resourceUrl}");
                 return JsonConvert.DeserializeObject<List<TEntity>>(entities);
             }
             catch (Exception e)
@@ -45,7 +50,7 @@ namespace AirportUWP.Abstractions
                 var streamContent = new StreamContent(memoryStream);
                 streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                var response = await httpClient.PostAsync(new Uri(ResourceUrl), streamContent);
+                var response = await httpClient.PostAsync(new Uri(_resourceUrl), streamContent);
 
                 var responseMessage = response.EnsureSuccessStatusCode();
                 var stream = await responseMessage.Content.ReadAsStreamAsync();
@@ -67,7 +72,7 @@ namespace AirportUWP.Abstractions
                 var streamContent = new StreamContent(memoryStream);
                 streamContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                var responseMessage = await httpClient.PutAsync(new Uri($"{ResourceUrl}/{id}"), streamContent);
+                var responseMessage = await httpClient.PutAsync(new Uri($"{_resourceUrl}/{id}"), streamContent);
                 responseMessage.EnsureSuccessStatusCode();
             }
         }
@@ -78,7 +83,7 @@ namespace AirportUWP.Abstractions
             {
                 var httpClient = new HttpClient();
 
-                var response = await httpClient.DeleteAsync(new Uri($"{ResourceUrl}/{id}"));
+                var response = await httpClient.DeleteAsync(new Uri($"{_resourceUrl}/{id}"));
                 response.EnsureSuccessStatusCode();
             }
             catch (Exception e)
