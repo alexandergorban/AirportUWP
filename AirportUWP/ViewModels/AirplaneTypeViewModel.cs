@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AirportUWP.ViewModels
 {
-    class AirplaneTypeViewModel
+    public class AirplaneTypeViewModel : BaseAirportViewModel
     {
     }
 }
