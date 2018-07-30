@@ -95,9 +95,19 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IModelDto.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\AirplaneDto.cs" />
+    <Compile Include="Models\AirplaneTypeDto.cs" />
+    <Compile Include="Models\AirportLocationDto.cs" />
+    <Compile Include="Models\CrewDto.cs" />
+    <Compile Include="Models\DepartureDto.cs" />
+    <Compile Include="Models\FlightDto.cs" />
+    <Compile Include="Models\PilotDto.cs" />
+    <Compile Include="Models\StewardessDto.cs" />
+    <Compile Include="Models\TicketDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +141,7 @@
       <Version>6.1.5</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
