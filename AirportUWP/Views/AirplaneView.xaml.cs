@@ -45,9 +45,9 @@ namespace AirportUWP.Views
             if (SelectedItem != null)
             {
                 TextId.Text = SelectedItem.Id.ToString();
-                TextAirplaneModel.Text = SelectedItem.Name;
-                TextNumberOfSeats.Text = SelectedItem.DateOfIssue.ToString();
-                TextLoadCapacity.Text = SelectedItem.LifeTime.ToString();
+                TextAirplaneName.Text = SelectedItem.Name;
+                TextDateOfIssue.Text = SelectedItem.DateOfIssue.ToString();
+                TextLifeTime.Text = SelectedItem.LifeTime.ToString();
             }
         }
 
@@ -60,9 +60,9 @@ namespace AirportUWP.Views
 
             TextId.Text = "";
             TextId.IsReadOnly = true;
-            TextAirplaneModel.Text = "";
-            TextNumberOfSeats.Text = "";
-            TextLoadCapacity.Text = "";
+            TextAirplaneName.Text = "";
+            TextDateOfIssue.Text = "";
+            TextLifeTime.Text = "";
 
             ShowDetailFields();
             ShowAddAndHideSaveButtons();
@@ -71,9 +71,9 @@ namespace AirportUWP.Views
         public async void AddEntity(object sender, RoutedEventArgs e)
         {
             SelectedItem.Id = Guid.NewGuid();
-            SelectedItem.Name = TextAirplaneModel.Text;
-            SelectedItem.DateOfIssue = DateTime.Parse(TextNumberOfSeats.Text);
-            SelectedItem.LifeTime = TimeSpan.Parse(TextLoadCapacity.Text);
+            SelectedItem.Name = TextAirplaneName.Text;
+            SelectedItem.DateOfIssue = DateTime.Parse(TextDateOfIssue.Text);
+            SelectedItem.LifeTime = TimeSpan.Parse(TextLifeTime.Text);
 
             await _airplaneService.CreateEntityAsync(SelectedItem);
 
@@ -107,9 +107,9 @@ namespace AirportUWP.Views
 
         public async void SaveEntity(object sender, RoutedEventArgs e)
         {
-            SelectedItem.Name = TextAirplaneModel.Text;
-            SelectedItem.DateOfIssue = DateTime.Parse(TextNumberOfSeats.Text);
-            SelectedItem.LifeTime = TimeSpan.Parse(TextLoadCapacity.Text);
+            SelectedItem.Name = TextAirplaneName.Text;
+            SelectedItem.DateOfIssue = DateTime.Parse(TextDateOfIssue.Text);
+            SelectedItem.LifeTime = TimeSpan.Parse(TextLifeTime.Text);
 
             var id = SelectedItem.Id;
             SelectedItem.Id = Guid.NewGuid();
@@ -159,24 +159,24 @@ namespace AirportUWP.Views
         {
             LabelId.Visibility = Visibility.Visible;
             TextId.Visibility = Visibility.Visible;
-            LabelAirplaneModel.Visibility = Visibility.Visible;
-            TextAirplaneModel.Visibility = Visibility.Visible;
-            LabelNumberOfSeats.Visibility = Visibility.Visible;
-            TextNumberOfSeats.Visibility = Visibility.Visible;
-            LabelLoadCapacity.Visibility = Visibility.Visible;
-            TextLoadCapacity.Visibility = Visibility.Visible;
+            LabelAirplaneName.Visibility = Visibility.Visible;
+            TextAirplaneName.Visibility = Visibility.Visible;
+            LabelDateOfIssue.Visibility = Visibility.Visible;
+            TextDateOfIssue.Visibility = Visibility.Visible;
+            LabelLifeTime.Visibility = Visibility.Visible;
+            TextLifeTime.Visibility = Visibility.Visible;
         }
 
         private void HideDetailFields()
         {
             LabelId.Visibility = Visibility.Collapsed;
             TextId.Visibility = Visibility.Collapsed;
-            LabelAirplaneModel.Visibility = Visibility.Collapsed;
-            TextAirplaneModel.Visibility = Visibility.Collapsed;
-            LabelNumberOfSeats.Visibility = Visibility.Collapsed;
-            TextNumberOfSeats.Visibility = Visibility.Collapsed;
-            LabelLoadCapacity.Visibility = Visibility.Collapsed;
-            TextLoadCapacity.Visibility = Visibility.Collapsed;
+            LabelAirplaneName.Visibility = Visibility.Collapsed;
+            TextAirplaneName.Visibility = Visibility.Collapsed;
+            LabelDateOfIssue.Visibility = Visibility.Collapsed;
+            TextDateOfIssue.Visibility = Visibility.Collapsed;
+            LabelLifeTime.Visibility = Visibility.Collapsed;
+            TextLifeTime.Visibility = Visibility.Collapsed;
         }
     }
 }
