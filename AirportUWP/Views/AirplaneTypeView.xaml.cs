@@ -35,7 +35,7 @@ namespace AirportUWP.Views
         {
             HideAddAndSaveButtons();
 
-            await ReloadEntitiesAsync();
+            await LoadEntitiesAsync();
         }
 
         public void OnSelectedItem(object sender, RoutedEventArgs e)
@@ -80,7 +80,7 @@ namespace AirportUWP.Views
             AddButton.Visibility = Visibility.Collapsed;
             TextId.IsReadOnly = false;
 
-            await ReloadEntitiesAsync();
+            await LoadEntitiesAsync();
         }
 
         public async void DeleteEntity(object sender, RoutedEventArgs e)
@@ -94,7 +94,7 @@ namespace AirportUWP.Views
 
             await _airplaneTypeService.DeleteEntityAsync(SelectedItem.Id.ToString());
 
-            await ReloadEntitiesAsync();
+            await LoadEntitiesAsync();
         }
 
         public void UpdateEntity(object sender, RoutedEventArgs e)
@@ -119,7 +119,7 @@ namespace AirportUWP.Views
             TextId.IsReadOnly = false;
             SaveButton.Visibility = Visibility.Collapsed;
 
-            await ReloadEntitiesAsync();
+            await LoadEntitiesAsync();
         }
 
         private AirplaneTypeDto GetSelected(object sender, RoutedEventArgs e)
@@ -128,7 +128,7 @@ namespace AirportUWP.Views
             return (AirplaneTypeDto)listView.SelectedItem;
         }
 
-        private async Task ReloadEntitiesAsync()
+        private async Task LoadEntitiesAsync()
         {
             AirplaneTypeDtos.Clear();
             foreach (var airplaneType in await _airplaneTypeService.GetEntitiesAsync())

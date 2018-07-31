@@ -14,7 +14,9 @@ namespace AirportUWP.Views
     public sealed partial class AirplaneView : Page
     {
         private readonly AirplaneService _airplaneService;
+        private readonly AirplaneTypeService _airplaneTypeService;
         public ObservableCollection<AirplaneDto> AirplaneDtos { get; set; }
+        public ObservableCollection<AirplaneTypeDto> AirplaneTypeDtos { get; set; }
         public AirplaneDto SelectedItem { get; set; }
 
         public AirplaneView()
@@ -22,7 +24,9 @@ namespace AirportUWP.Views
             this.InitializeComponent();
 
             _airplaneService = new AirplaneService();
+            _airplaneTypeService = new AirplaneTypeService();
             AirplaneDtos = new ObservableCollection<AirplaneDto>();
+            AirplaneTypeDtos = new ObservableCollection<AirplaneTypeDto>();
             SelectedItem = new AirplaneDto();
 
             AirplaneTypesList.ItemsSource = AirplaneDtos;
@@ -35,7 +39,8 @@ namespace AirportUWP.Views
         {
             HideAddAndSaveButtons();
 
-            await ReloadEntitiesAsync();
+            await LoadAirplaneAsync();
+            await LoadAirplaneTypeAsync();
         }
 
         public void OnSelectedItem(object sender, RoutedEventArgs e)
@@ -46,7 +51,8 @@ namespace AirportUWP.Views
             {
                 TextId.Text = SelectedItem.Id.ToString();
                 TextAirplaneName.Text = SelectedItem.Name;
-                TextDateOfIssue.Text = SelectedItem.DateOfIssue.ToString();
+                TextAirplaneType.Text = SelectedItem.AirplaneType.Model;
+                TextDateOfIssue.Text = SelectedItem.DateOfIssue.ToString("MM/yyyy");
                 TextLifeTime.Text = SelectedItem.LifeTime.ToString();
             }
         }
@@ -61,6 +67,7 @@ namespace AirportUWP.Views
             TextId.Text = "";
             TextId.IsReadOnly = true;
             TextAirplaneName.Text = "";
+            TextAirplaneType.Text = "";
             TextDateOfIssue.Text = "";
             TextLifeTime.Text = "";
 
@@ -72,6 +79,8 @@ namespace AirportUWP.Views
         {
             SelectedItem.Id = Guid.NewGuid();
             SelectedItem.Name = TextAirplaneName.Text;
+            SelectedItem.AirplaneType = AirplaneTypeDtos
+                .FirstOrDefault(airplaneType => airplaneType.Model == TextAirplaneName.Text);
             SelectedItem.DateOfIssue = DateTime.Parse(TextDateOfIssue.Text);
             SelectedItem.LifeTime = TimeSpan.Parse(TextLifeTime.Text);
 
@@ -80,7 +89,7 @@ namespace AirportUWP.Views
             AddButton.Visibility = Visibility.Collapsed;
             TextId.IsReadOnly = false;
 
-            await ReloadEntitiesAsync();
+            await LoadAirplaneAsync();
         }
 
         public async void DeleteEntity(object sender, RoutedEventArgs e)
@@ -94,7 +103,7 @@ namespace AirportUWP.Views
 
             await _airplaneService.DeleteEntityAsync(SelectedItem.Id.ToString());
 
-            await ReloadEntitiesAsync();
+            await LoadAirplaneAsync();
         }
 
         public void UpdateEntity(object sender, RoutedEventArgs e)
@@ -108,6 +117,8 @@ namespace AirportUWP.Views
         public async void SaveEntity(object sender, RoutedEventArgs e)
         {
             SelectedItem.Name = TextAirplaneName.Text;
+            SelectedItem.AirplaneType = AirplaneTypeDtos
+                .FirstOrDefault(airplaneType => airplaneType.Model == TextAirplaneName.Text);
             SelectedItem.DateOfIssue = DateTime.Parse(TextDateOfIssue.Text);
             SelectedItem.LifeTime = TimeSpan.Parse(TextLifeTime.Text);
 
@@ -119,7 +130,7 @@ namespace AirportUWP.Views
             TextId.IsReadOnly = false;
             SaveButton.Visibility = Visibility.Collapsed;
 
-            await ReloadEntitiesAsync();
+            await LoadAirplaneAsync();
         }
 
         private AirplaneDto GetSelected(object sender, RoutedEventArgs e)
@@ -128,12 +139,21 @@ namespace AirportUWP.Views
             return (AirplaneDto)listView.SelectedItem;
         }
 
-        private async Task ReloadEntitiesAsync()
+        private async Task LoadAirplaneAsync()
         {
             AirplaneDtos.Clear();
             foreach (var airplaneType in await _airplaneService.GetEntitiesAsync())
             {
                 AirplaneDtos.Add(airplaneType);
+            }
+        }
+
+        private async Task LoadAirplaneTypeAsync()
+        {
+            AirplaneTypeDtos.Clear();
+            foreach (var airplaneType in await _airplaneTypeService.GetEntitiesAsync())
+            {
+                AirplaneTypeDtos.Add(airplaneType);
             }
         }
 
