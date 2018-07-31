@@ -119,6 +119,33 @@
     <Compile Include="Services\PilotService.cs" />
     <Compile Include="Services\StewardessService.cs" />
     <Compile Include="Services\TicketService.cs" />
+    <Compile Include="Views\AirplaneTypeView.xaml.cs">
+      <DependentUpon>AirplaneTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AirplaneView.xaml.cs">
+      <DependentUpon>AirplaneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CrewView.xaml.cs">
+      <DependentUpon>CrewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepartureView.xaml.cs">
+      <DependentUpon>DepartureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FlightView.xaml.cs">
+      <DependentUpon>FlightView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PilotView.xaml.cs">
+      <DependentUpon>PilotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StewardessView.xaml.cs">
+      <DependentUpon>StewardessView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TicketView.xaml.cs">
+      <DependentUpon>TicketView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
