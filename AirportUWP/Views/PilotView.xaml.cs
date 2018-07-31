@@ -48,6 +48,7 @@ namespace AirportUWP.Views
                 TextName.Text = SelectedItem.Name;
                 TextSurname.Text = SelectedItem.Surname.ToString();
                 TextDeteOfBirth.Text = SelectedItem.DateOfBirth.ToString();
+                TextExperience.Text = SelectedItem.Experience.ToString();
             }
         }
 
@@ -63,6 +64,7 @@ namespace AirportUWP.Views
             TextName.Text = "";
             TextSurname.Text = "";
             TextDeteOfBirth.Text = "";
+            TextExperience.Text = "";
 
             ShowDetailFields();
             ShowAddAndHideSaveButtons();
@@ -74,6 +76,7 @@ namespace AirportUWP.Views
             SelectedItem.Name = TextName.Text;
             SelectedItem.Surname = TextSurname.Text;
             SelectedItem.DateOfBirth = DateTime.Parse(TextDeteOfBirth.Text);
+            SelectedItem.Experience = TimeSpan.Parse(TextExperience.Text);
 
             await _pilotService.CreateEntityAsync(SelectedItem);
 
@@ -110,6 +113,7 @@ namespace AirportUWP.Views
             SelectedItem.Name = TextName.Text;
             SelectedItem.Surname = TextSurname.Text;
             SelectedItem.DateOfBirth = DateTime.Parse(TextDeteOfBirth.Text);
+            SelectedItem.Experience = TimeSpan.Parse(TextExperience.Text);
 
             var id = SelectedItem.Id;
             SelectedItem.Id = Guid.NewGuid();
@@ -165,6 +169,8 @@ namespace AirportUWP.Views
             TextSurname.Visibility = Visibility.Visible;
             LabelDateOfBirth.Visibility = Visibility.Visible;
             TextDeteOfBirth.Visibility = Visibility.Visible;
+            LabelExperience.Visibility = Visibility.Visible;
+            TextExperience.Visibility = Visibility.Visible;
         }
 
         private void HideDetailFields()
@@ -177,6 +183,8 @@ namespace AirportUWP.Views
             TextSurname.Visibility = Visibility.Collapsed;
             LabelDateOfBirth.Visibility = Visibility.Collapsed;
             TextDeteOfBirth.Visibility = Visibility.Collapsed;
+            LabelExperience.Visibility = Visibility.Collapsed;
+            TextExperience.Visibility = Visibility.Collapsed;
         }
     }
 }

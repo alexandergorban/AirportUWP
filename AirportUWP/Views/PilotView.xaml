@@ -22,15 +22,17 @@
                     <Grid Padding="12" Background="DarkGray">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="330"></ColumnDefinition>
-                            <ColumnDefinition Width="120"></ColumnDefinition>
-                            <ColumnDefinition Width="120"></ColumnDefinition>
-                            <ColumnDefinition Width="120"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" Text="Id"></TextBlock>
-                        <TextBlock Grid.Column="1" Text="Airplane model"></TextBlock>
-                        <TextBlock Grid.Column="2" Text="Seats count"></TextBlock>
-                        <TextBlock Grid.Column="3" Text="Carrying capacity"></TextBlock>
+                        <TextBlock Grid.Column="1" Text="Name"></TextBlock>
+                        <TextBlock Grid.Column="2" Text="Surname"></TextBlock>
+                        <TextBlock Grid.Column="3" Text="Date Of Birth"></TextBlock>
+                        <TextBlock Grid.Column="4" Text="Experience"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -39,15 +41,17 @@
                     <Grid Height="50">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="330"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="{Binding Id}"></TextBlock>
                         <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Name}"></TextBlock>
                         <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Surname}"></TextBlock>
                         <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{Binding DateOfBirth}"></TextBlock>
+                        <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{Binding Experience}"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -58,13 +62,15 @@
         <Button Content="Delete" Click="DeleteEntity" HorizontalAlignment="Left" Width="150" Margin="640,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
         <TextBlock x:Name="LabelId" Grid.Column="1" HorizontalAlignment="Left" Margin="58.39,106,0,0" Text="Id" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35"/>
         <TextBox x:Name="TextId" Grid.Column="1" HorizontalAlignment="Left" Margin="58.39,140,0,0" Text="{Binding Id}" VerticalAlignment="Top" Width="240" Height="35"/>
-        <TextBlock x:Name="LabelName" HorizontalAlignment="Left" Margin="63.39,190,0,0" Text="Airplane model" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <TextBox x:Name="TextName" HorizontalAlignment="Left" Margin="62.39,225,0,0" Text="{Binding AirplaneModel}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <TextBlock x:Name="LabelSurname" HorizontalAlignment="Left" Margin="66.39,275,0,0" Text="Number Of Seats" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="30" Grid.Column="1"/>
-        <TextBox x:Name="TextSurname" HorizontalAlignment="Left" Margin="68.39,304,0,0" Text="{Binding SeatsCount}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <TextBlock x:Name="LabelDateOfBirth" HorizontalAlignment="Left" Margin="68.39,364,0,0" Text="Load Capacity" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <TextBox x:Name="TextDeteOfBirth" HorizontalAlignment="Left" Margin="68.39,399,0,0" Text="{Binding CarryingCapacity}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <Button Content="Add" x:Name="AddButton" Click="AddEntity" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="72.39,458,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
-        <Button Content="Save changes" x:Name="SaveButton" Click="SaveEntity" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="73.39,458,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
+        <TextBlock x:Name="LabelName" HorizontalAlignment="Left" Margin="63.39,190,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBox x:Name="TextName" HorizontalAlignment="Left" Margin="62.39,225,0,0" Text="{Binding Name}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBlock x:Name="LabelSurname" HorizontalAlignment="Left" Margin="66.39,275,0,0" Text="Surname" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="30" Grid.Column="1"/>
+        <TextBox x:Name="TextSurname" HorizontalAlignment="Left" Margin="68.39,304,0,0" Text="{Binding Surname}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBlock x:Name="LabelDateOfBirth" HorizontalAlignment="Left" Margin="68.39,364,0,0" Text="Date Of Birth" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBox x:Name="TextDeteOfBirth" HorizontalAlignment="Left" Margin="68.39,399,0,0" Text="{Binding DateOfBirth}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBlock x:Name="LabelExperience" HorizontalAlignment="Left" Margin="72.39,449,0,0" Text="Experience" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBox x:Name="TextExperience" HorizontalAlignment="Left" Margin="72.39,490,0,0" Text="{Binding Experience}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <Button Content="Add" x:Name="AddButton" Click="AddEntity" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="78.39,570,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
+        <Button Content="Save changes" x:Name="SaveButton" Click="SaveEntity" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="75.39,566,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
     </Grid>
 </Page>
