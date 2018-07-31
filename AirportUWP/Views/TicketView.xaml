@@ -16,7 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="AirplaneTypesList" IsItemClickEnabled="True" Margin="57,133,137.35,-372.968" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <ListView x:Name="AirplaneTypesList" IsItemClickEnabled="True" SelectionChanged="OnSelectedItem"  Margin="57,133,137.35,-372.968" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <Grid Padding="12" Background="DarkGray">
@@ -57,7 +57,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Content="LoadData" Click="GetEntities" HorizontalAlignment="Left" Margin="49,20,0,0" VerticalAlignment="Top" Width="150"/>
-        <ListView x:Name="TicketsList" IsItemClickEnabled="True" SelectionChanged="OnSelectedItem" Margin="67,490,127.35,-729.968" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <ListView x:Name="TicketsList" IsItemClickEnabled="True" Margin="67,490,127.35,-729.968" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <Grid Padding="12" Background="DarkGray">

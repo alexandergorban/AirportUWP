@@ -28,6 +28,7 @@ namespace AirportUWP.Views
             _ticketService = new TicketService();
 
             FlightDtos = new ObservableCollection<FlightDto>();
+            TicketDtos = new ObservableCollection<TicketDto>();
             SelectedItem = new FlightDto();
 
             AirplaneTypesList.ItemsSource = FlightDtos;
@@ -39,6 +40,7 @@ namespace AirportUWP.Views
 
             if (SelectedItem != null)
             {
+                TicketDtos.Clear();
                 foreach (var ticketDto in await _ticketService.GetTicketsAsync(SelectedItem.Id))
                 {
                     TicketDtos.Add(ticketDto);
