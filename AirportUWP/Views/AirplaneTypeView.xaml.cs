@@ -28,21 +28,12 @@ namespace AirportUWP.Views
             AirplaneTypesList.ItemsSource = AirplaneTypeDtos;
 
             HideDetailFields();
-            AddButton.Visibility = Visibility.Collapsed;
-            SaveButton.Visibility = Visibility.Collapsed;
+            HideAddAndSaveButtons();
         }
 
         public async void GetEntities(object sender, RoutedEventArgs e)
         {
-            if (SaveButton.Visibility == Visibility.Visible)
-            {
-                SaveButton.Visibility = Visibility.Collapsed;
-            }
-
-            if (AddButton.Visibility == Visibility.Visible)
-            {
-                AddButton.Visibility = Visibility.Collapsed;
-            }
+            HideAddAndSaveButtons();
 
             await ReloadEntitiesAsync();
         }
@@ -74,16 +65,7 @@ namespace AirportUWP.Views
             TextLoadCapacity.Text = "";
 
             ShowDetailFields();
-
-            if (SaveButton.Visibility == Visibility.Visible)
-            {
-                SaveButton.Visibility = Visibility.Collapsed;
-            }
-
-            if (AddButton.Visibility == Visibility.Collapsed)
-            {
-                AddButton.Visibility = Visibility.Visible;
-            }
+            ShowAddAndHideSaveButtons();
         }
 
         public async void AddEntity(object sender, RoutedEventArgs e)
@@ -103,15 +85,7 @@ namespace AirportUWP.Views
 
         public async void DeleteEntity(object sender, RoutedEventArgs e)
         {
-            if (SaveButton.Visibility == Visibility.Visible)
-            {
-                SaveButton.Visibility = Visibility.Collapsed;
-            }
-
-            if (AddButton.Visibility == Visibility.Visible)
-            {
-                AddButton.Visibility = Visibility.Collapsed;
-            }
+            HideAddAndSaveButtons();
 
             if (TextId.IsReadOnly)
             {
@@ -128,16 +102,7 @@ namespace AirportUWP.Views
             TextId.IsReadOnly = true;
 
             ShowDetailFields();
-
-            if (SaveButton.Visibility == Visibility.Collapsed)
-            {
-                SaveButton.Visibility = Visibility.Visible;
-            }
-
-            if (AddButton.Visibility == Visibility.Visible)
-            {
-                AddButton.Visibility = Visibility.Collapsed;
-            }
+            HideAddAndShowSaveButtons();
         }
 
         public async void SaveEntity(object sender, RoutedEventArgs e)
@@ -170,6 +135,24 @@ namespace AirportUWP.Views
             {
                 AirplaneTypeDtos.Add(airplaneType);
             }
+        }
+
+        private void ShowAddAndHideSaveButtons()
+        {
+            AddButton.Visibility = Visibility.Visible;
+            SaveButton.Visibility = Visibility.Collapsed;
+        }
+
+        private void HideAddAndShowSaveButtons()
+        {
+            AddButton.Visibility = Visibility.Collapsed;
+            SaveButton.Visibility = Visibility.Visible;
+        }
+
+        private void HideAddAndSaveButtons()
+        {
+            AddButton.Visibility = Visibility.Collapsed;
+            SaveButton.Visibility = Visibility.Collapsed;
         }
 
         private void ShowDetailFields()
