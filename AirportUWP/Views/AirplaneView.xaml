@@ -21,16 +21,18 @@
                 <DataTemplate>
                     <Grid Padding="12" Background="DarkGray">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="330"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" Text="Id"></TextBlock>
                         <TextBlock Grid.Column="1" Text="Airplane Name"></TextBlock>
-                        <TextBlock Grid.Column="2" Text="Date Of Issue"></TextBlock>
-                        <TextBlock Grid.Column="3" Text="Life Time"></TextBlock>
+                        <TextBlock Grid.Column="2" Text="Airplane Type"></TextBlock>
+                        <TextBlock Grid.Column="3" Text="Date Of Issue"></TextBlock>
+                        <TextBlock Grid.Column="4" Text="Life Time"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -38,16 +40,18 @@
                 <DataTemplate>
                     <Grid Height="50">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="330"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" VerticalAlignment="Center" Text="{Binding Id}"></TextBlock>
                         <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Name}"></TextBlock>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding DateOfIssue}"></TextBlock>
-                        <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{Binding LifeTime}"></TextBlock>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding AirplaneType.Model}"></TextBlock>
+                        <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{Binding DateOfIssue}"></TextBlock>
+                        <TextBlock Grid.Column="4" VerticalAlignment="Center" Text="{Binding LifeTime}"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -56,15 +60,17 @@
         <Button Content="Create" Click="CreateEntity" HorizontalAlignment="Left" Width="150" Margin="248,19,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
         <Button Content="Edit" Click="UpdateEntity" HorizontalAlignment="Left" Width="150" Margin="437,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
         <Button Content="Delete" Click="DeleteEntity" HorizontalAlignment="Left" Width="150" Margin="640,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
-        <TextBlock x:Name="LabelId" Grid.Column="1" HorizontalAlignment="Left" Margin="58.39,106,0,0" Text="Id" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35"/>
-        <TextBox x:Name="TextId" Grid.Column="1" HorizontalAlignment="Left" Margin="58.39,140,0,0" Text="{Binding Id}" VerticalAlignment="Top" Width="240" Height="35"/>
-        <TextBlock x:Name="LabelAirplaneName" HorizontalAlignment="Left" Margin="63.39,190,0,0" Text="Airplane Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <TextBox x:Name="TextAirplaneName" HorizontalAlignment="Left" Margin="62.39,225,0,0" Text="{Binding Name}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <TextBlock x:Name="LabelDateOfIssue" HorizontalAlignment="Left" Margin="66.39,275,0,0" Text="Date Of Issue" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="30" Grid.Column="1"/>
-        <TextBox x:Name="TextDateOfIssue" HorizontalAlignment="Left" Margin="68.39,304,0,0" Text="{Binding DateOfIssue}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <TextBlock x:Name="LabelLifeTime" HorizontalAlignment="Left" Margin="68.39,364,0,0" Text="Life Time" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <TextBox x:Name="TextLifeTime" HorizontalAlignment="Left" Margin="68.39,399,0,0" Text="{Binding LifeTime}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
-        <Button Content="Add" x:Name="AddButton" Click="AddEntity" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="72.39,458,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
-        <Button Content="Save changes" x:Name="SaveButton" Click="SaveEntity" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="73.39,458,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
+        <TextBlock x:Name="LabelId" Grid.Column="1" HorizontalAlignment="Left" Margin="78.39,107,0,0" Text="Id" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35"/>
+        <TextBox x:Name="TextId" Grid.Column="1" HorizontalAlignment="Left" Margin="70.39,142,0,0" Text="{Binding Id}" VerticalAlignment="Top" Width="240" Height="35"/>
+        <TextBlock x:Name="LabelAirplaneName" HorizontalAlignment="Left" Margin="77.39,189,0,0" Text="Airplane Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBox x:Name="TextAirplaneName" HorizontalAlignment="Left" Margin="73.39,225,0,0" Text="{Binding Name}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBlock x:Name="LabelAirplaneType" HorizontalAlignment="Left" Margin="72.39,284,0,0" Text="Airplane AirplaneType" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBox x:Name="TextAirplaneType" HorizontalAlignment="Left" Margin="72.39,316,0,0" Text="{Binding AirplaneType}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBlock x:Name="LabelDateOfIssue" HorizontalAlignment="Left" Margin="78.39,376,0,0" Text="Date Of Issue" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="30" Grid.Column="1"/>
+        <TextBox x:Name="TextDateOfIssue" HorizontalAlignment="Left" Margin="72.39,406,0,0" Text="{Binding DateOfIssue}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBlock x:Name="LabelLifeTime" HorizontalAlignment="Left" Margin="76.39,454,0,0" Text="Life Time" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <TextBox x:Name="TextLifeTime" HorizontalAlignment="Left" Margin="72.39,490,0,0" Text="{Binding LifeTime}" VerticalAlignment="Top" Width="240" Height="35" Grid.Column="1"/>
+        <Button Content="Add" x:Name="AddButton" Click="AddEntity" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="78.39,558,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
+        <Button Content="Save changes" x:Name="SaveButton" Click="SaveEntity" Grid.Column="1" HorizontalAlignment="Left" Width="150" Margin="76.39,562,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.192,-1.359"/>
     </Grid>
 </Page>

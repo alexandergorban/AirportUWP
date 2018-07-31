@@ -161,6 +161,8 @@ namespace AirportUWP.Views
             TextId.Visibility = Visibility.Visible;
             LabelAirplaneName.Visibility = Visibility.Visible;
             TextAirplaneName.Visibility = Visibility.Visible;
+            LabelAirplaneType.Visibility = Visibility.Visible;
+            TextAirplaneType.Visibility = Visibility.Visible;
             LabelDateOfIssue.Visibility = Visibility.Visible;
             TextDateOfIssue.Visibility = Visibility.Visible;
             LabelLifeTime.Visibility = Visibility.Visible;
@@ -173,6 +175,8 @@ namespace AirportUWP.Views
             TextId.Visibility = Visibility.Collapsed;
             LabelAirplaneName.Visibility = Visibility.Collapsed;
             TextAirplaneName.Visibility = Visibility.Collapsed;
+            LabelAirplaneType.Visibility = Visibility.Collapsed;
+            TextAirplaneType.Visibility = Visibility.Collapsed;
             LabelDateOfIssue.Visibility = Visibility.Collapsed;
             TextDateOfIssue.Visibility = Visibility.Collapsed;
             LabelLifeTime.Visibility = Visibility.Collapsed;
