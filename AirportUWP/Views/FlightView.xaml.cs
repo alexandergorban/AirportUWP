@@ -28,10 +28,10 @@ namespace AirportUWP.Views
 
         public async void GetEntities(object sender, RoutedEventArgs e)
         {
-            await LoadDepartureAsync();
+            await LoadFlightAsync();
         }
 
-        private async Task LoadDepartureAsync()
+        private async Task LoadFlightAsync()
         {
             foreach (var airplaneType in await _flightService.GetEntitiesAsync())
             {
